@@ -4,3 +4,9 @@
 # finally import matplotlib and plot the signal. I would like to model this signal
 # with different shifts, filters, etc.
 
+def main():
+
+
+if __name__ == "__main__":
+    main()
+
