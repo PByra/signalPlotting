@@ -8,28 +8,32 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 def general_signal():
-    frequency = np.random.uniform(3000, 4000)  
+    frequency = np.random.uniform(1000, 10000)  
     modulation_index = np.random.uniform(0, 1) 
     phase = np.random.uniform(0, 2 * np.pi)
     time = np.arange(0, 1000, 2)
-    signal  = np.sin(2 * np.pi * frequency * time + phase)
-    print(len(signal))    
+    noise_index = np.random.random()
+    noise = np.random.normal(0, noise_index, len(time))
+    signal  = np.sin(2 * np.pi * frequency * time + phase) + noise   
     return signal, frequency, modulation_index, time, phase
 
 def amplitude_modulated_signal(frequency, modulation_index, time):
     carrier = np.cos(2 * np.pi * frequency * time)
     modulating_signal = 1 + modulation_index * carrier
-    return carrier * modulating_signal
+    amSignal = carrier * modulating_signal
+    return amSignal
 
 def frequency_modulated_signal(frequency, modulation_index, time):
     modulating_signal = np.cos(2 * np.pi * frequency * time)
     instantaneous_frequency = frequency + modulation_index * modulating_signal
-    return np.cos(2 * np.pi * instantaneous_frequency * time)
+    fmSignal =np.cos(2 * np.pi * instantaneous_frequency * time)
+    return fmSignal
 
 def phase_modulated_signal(frequency, modulation_index, time):
     modulating_signal = np.cos(2 * np.pi * frequency * time)
     instantaneous_phase = 2 * np.pi * frequency * time + modulation_index * modulating_signal
-    return np.cos(instantaneous_phase)
+    qamSignal = np.cos(instantaneous_phase)
+    return qamSignal
 
 def plot_signal(signal, time, title):
     plt.figure(figsize=(10, 4))
