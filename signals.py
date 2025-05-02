@@ -1,4 +1,9 @@
-#Defining of Signals based on parameters 
+# Function definication for generating and plotting different types of signals
+# This code generates and plots different types of signals: general, amplitude-modulated, frequency-modulated, and phase-modulated signals.
+# It uses the numpy library for numerical operations and matplotlib for plotting.
+# This a self learning code to broaden my understanding of signal processing and modulation techniques.
+# Future work is to use with RF within my home for wireless communication and signal processing.
+
 import matplotlib.pyplot as plt
 import numpy as np
 
