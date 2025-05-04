@@ -5,7 +5,6 @@ import signals
 
 def main():
     rawSignal, frequency, modulation_index, time, phase = signals.general_signal()
-    filteredSignal = signals.filter_signal(rawSignal, cutoff_frequency=1000, sampling_rate=10000)
     amSignal = signals.amplitude_modulated_signal(frequency=frequency, modulation_index=modulation_index, time=time)
     fmSignal = signals.frequency_modulated_signal(frequency=frequency, modulation_index=modulation_index, time=time)
     qamSignal = signals.phase_modulated_signal(frequency=frequency, modulation_index=modulation_index, time=time)
