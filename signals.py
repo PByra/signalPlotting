@@ -17,6 +17,13 @@ def general_signal():
     signal  = np.sin(2 * np.pi * frequency * time + phase) + noise   
     return signal, frequency, modulation_index, time, phase
 
+def filter_signal(signal, cutoff_frequency, sampling_rate):
+    nyquist = 0.5 * sampling_rate
+    normal_cutoff = cutoff_frequency / nyquist
+    b, a = signal.butter(1, normal_cutoff, btype='low', analog=False)
+    filtered_signal = signal.filtfilt(b, a, signal)
+    return filtered_signal
+
 def amplitude_modulated_signal(frequency, modulation_index, time):
     carrier = np.cos(2 * np.pi * frequency * time)
     modulating_signal = 1 + modulation_index * carrier
